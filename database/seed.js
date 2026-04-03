@@ -33,14 +33,62 @@ db.serialize(() => {
   `);
 
   const products = [
-    ["Reusable Water Bottle", 24.95, "https://picsum.photos/seed/bottle/400/300", "Insulated and lightweight.", 12],
-    ["Canvas Tote Bag", 14.5, "https://picsum.photos/seed/tote/400/300", "Perfect for groceries.", 20],
-    ["Wireless Earbuds", 79.0, "https://picsum.photos/seed/earbuds/400/300", "Noise isolation, compact case.", 6],
-    ["Notebook Set", 12.0, "https://picsum.photos/seed/notebooks/400/300", "3-pack dotted notebooks.", 25],
-    ["Desk Lamp", 39.99, "https://picsum.photos/seed/lamp/400/300", "Warm light, adjustable arm.", 8],
-    ["Coffee Mug", 18.0, "https://picsum.photos/seed/mug/400/300", "Ceramic mug 350ml.", 30],
-    ["Phone Stand", 9.95, "https://picsum.photos/seed/stand/400/300", "Aluminium foldable stand.", 40],
-    ["Yoga Mat", 45.0, "https://picsum.photos/seed/yogamat/400/300", "Non-slip, easy to clean.", 10]
+    [
+      "Reusable Water Bottle",
+      24.95,
+      "https://picsum.photos/seed/bottle/400/300",
+      "Insulated and lightweight.",
+      12,
+    ],
+    [
+      "Canvas Tote Bag",
+      14.5,
+      "https://picsum.photos/seed/tote/400/300",
+      "Perfect for groceries.",
+      20,
+    ],
+    [
+      "Wireless Earbuds",
+      79.0,
+      "https://picsum.photos/seed/earbuds/400/300",
+      "Noise isolation, compact case.",
+      6,
+    ],
+    [
+      "Notebook Set",
+      12.0,
+      "https://picsum.photos/seed/notebooks/400/300",
+      "3-pack dotted notebooks.",
+      25,
+    ],
+    [
+      "Desk Lamp",
+      39.99,
+      "https://picsum.photos/seed/lamp/400/300",
+      "Warm light, adjustable arm.",
+      8,
+    ],
+    [
+      "Coffee Mug",
+      18.0,
+      "https://picsum.photos/seed/mug/400/300",
+      "Ceramic mug 350ml.",
+      30,
+    ],
+    [
+      "Phone Stand",
+      9.95,
+      "https://picsum.photos/seed/stand/400/300",
+      "Aluminium foldable stand.",
+      40,
+    ],
+    [
+      "Yoga Mat",
+      45.0,
+      "https://picsum.photos/seed/yogamat/400/300",
+      "Non-slip, easy to clean.",
+      10,
+    ],
   ];
 
   for (const p of products) stmt.run(p);
@@ -48,5 +96,3 @@ db.serialize(() => {
 
   console.log(" Seed complete: products and cart tables created.");
 });
-
-db.close();

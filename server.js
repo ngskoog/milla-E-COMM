@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const db = require("./database/db");
+const seed = require("./database/seed");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -48,7 +49,8 @@ app.get("/api/cart", (req, res) => {
 // API: CREATE add to cart
 app.post("/api/cart", (req, res) => {
   const { product_id } = req.body;
-  if (!product_id) return res.status(400).json({ error: "product_id is required" });
+  if (!product_id)
+    return res.status(400).json({ error: "product_id is required" });
 
   db.get(
     "SELECT id, quantity FROM cart_items WHERE product_id = ?",
@@ -71,7 +73,7 @@ app.post("/api/cart", (req, res) => {
               return res.status(500).json({ error: "Database error" });
             }
             res.json({ id: row.id, product_id, quantity: newQty });
-          }
+          },
         );
       } else {
         // Otherwise create new cart item
@@ -84,10 +86,10 @@ app.post("/api/cart", (req, res) => {
               return res.status(500).json({ error: "Database error" });
             }
             res.json({ id: this.lastID, product_id, quantity: 1 });
-          }
+          },
         );
       }
-    }
+    },
   );
 });
 
@@ -109,9 +111,10 @@ app.put("/api/cart/:id", (req, res) => {
         console.error(err);
         return res.status(500).json({ error: "Database error" });
       }
-      if (this.changes === 0) return res.status(404).json({ error: "Cart item not found" });
+      if (this.changes === 0)
+        return res.status(404).json({ error: "Cart item not found" });
       res.json({ id: Number(id), quantity: q });
-    }
+    },
   );
 });
 
@@ -124,7 +127,8 @@ app.delete("/api/cart/:id", (req, res) => {
       console.error(err);
       return res.status(500).json({ error: "Database error" });
     }
-    if (this.changes === 0) return res.status(404).json({ error: "Cart item not found" });
+    if (this.changes === 0)
+      return res.status(404).json({ error: "Cart item not found" });
     res.json({ success: true });
   });
 });
