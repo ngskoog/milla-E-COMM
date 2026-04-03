@@ -1,0 +1,55 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+body { margin: 0; background: #fafafa; color: #111; }
+.header { padding: 24px; background: white; border-bottom: 1px solid #eee; }
+.layout { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.card { background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
+.card img { width: 100%; height: 140px; object-fit: cover; display: block; }
+.card .content { padding: 12px; }
+.price { font-weight: 700; }
+.muted { color: #666; }
+.cart { background: white; border: 1px solid #eee; border-radius: 12px; padding: 16px; height: fit-content; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+/* --- Header polish --- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo { margin: 0; font-size: 28px; letter-spacing: -0.5px; }
+.sub { margin: 6px 0 0; color: #666; }
+
+.headerRight { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+.pill {
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* --- Make buttons look nicer (overrides) --- */
+.btn {
+  transition: transform 0.05s ease, background 0.2s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn.danger { background: #fff; }
+
+button:hover {
+  background-color: #333;
+  color: white;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
